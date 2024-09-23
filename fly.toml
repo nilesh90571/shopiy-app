@@ -1,0 +1,29 @@
+# fly.toml app configuration file generated for focused-strategy-app on 2024-09-19T14:18:50+05:30
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'focused-strategy-app'
+primary_region = 'lhr'
+
+[build]
+  builder = "heroku/builder:20"
+
+
+[env]
+  PORT = "3000"
+  HOST = "https://focused-strategy-app.fly.dev"
+  SHOPIFY_API_KEY = "37fd24960f22164bf4cf8c648b721efb"
+  SCOPES = "write_products"
+
+[[services]]
+  protocol = ''
+  internal_port = 3000
+
+  [[services.ports]]
+    port = 3000
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
